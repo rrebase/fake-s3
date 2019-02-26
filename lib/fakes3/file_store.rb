@@ -336,7 +336,7 @@ module FakeS3
       if File.directory?(path)
         Dir.new(path).each do |pathname|
           next if ['.', '..'].include?(pathname)
-          if pathname == SHUCK_METADATA_DIR
+          if pathname == FAKE_S3_METADATA_DIR
               objects << get_object(bucket_name, path[root_path.length+1..-1], nil)
               else
               objects += get_objects(bucket_name, File.join(path, pathname), root_path)
